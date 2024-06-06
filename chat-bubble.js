@@ -21,9 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return null;
   }
 
-  const scriptUrl = getScriptUrl("script/chatBubble.js");
+  const scriptUrl = getScriptUrl(
+    "https://cdn.jsdelivr.net/gh/GHimmel/chat-bubble@main/chat-bubble.js"
+  );
 
   console.log(JSON.stringify(scriptUrl, null, 2));
+
+  if (!scriptUrl) {
+    console.log("No se encontro el script");
+    return;
+  }
 
   const queryStringIndex = scriptUrl.indexOf("?");
 
