@@ -11,9 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getScriptUrl(url) {
     const scripts = document.getElementsByTagName("script");
+
     for (let i = 0; i < scripts.length; i++) {
       const script = scripts[i];
+
       const src = script.src;
+
       if (src && src.includes(url)) {
         return src;
       }
@@ -24,13 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const scriptUrl = getScriptUrl(
     "https://cdn.jsdelivr.net/gh/GHimmel/chat-bubble@main/chat-bubble.js"
   );
-
-  console.log(JSON.stringify(scriptUrl, null, 2));
-
-  if (!scriptUrl) {
-    console.log("No se encontro el script");
-    return;
-  }
 
   const queryStringIndex = scriptUrl.indexOf("?");
 
@@ -96,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font-family: 'Inter', sans-serif;
     scrollbar-gutter: stable;
+    z-index:110
   `;
 
   /*  chatHeader.className = "chat-header"; */
@@ -528,6 +525,8 @@ document.addEventListener("DOMContentLoaded", function () {
       deleteLastChile();
       addMessageAssistantChat(data.data.messages[0].message);
     } catch (error) {
+      deleteLastChile();
+      addMessageAssistantChat("There was an error ❌");
       console.error("There was a problem with the fetch operation:", error);
     }
   };
