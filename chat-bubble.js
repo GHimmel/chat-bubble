@@ -144,8 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
     border: none;
     outline: none;
     flex: 1;
-    font-size: 1.125rem;
-    line-height: 1.75rem; 
+    font-size: 16px;
+    line-height: 180%;
   `;
 
   /* chatSendButton.className = "chat-send-button"; */
