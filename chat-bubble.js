@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const scriptUrl = getScriptUrl(
-    "https://ghimmel.github.io/chat-bubble/chat-bubble.js"
+    "https://ghimmel.github.io/chat-bubble/chat-bubble.js "
   );
   /* https://ghimmel.github.io/chat-bubble/chat-bubble.js */
 
@@ -238,9 +238,8 @@ document.addEventListener("DOMContentLoaded", function () {
     background-color: ${rgba(rgb, 0.1)};
     align-self: flex-start;
     border-radius: 0.5rem;
-    line-height: 1.625;
     color:${rgba(rgb, 0.9)};
-    line-height: 1.4rem;
+    line-height: 1.6rem;
     text-wrap: pretty;
     max-width: 90%;
   `;
@@ -254,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
   padding: 10px 16px;
   margin:0px;
   font-size: 16px;
-  line-height: 1.6rem;
+  line-height: 180%;
   white-space: normal;  
   overflow-wrap: break-word; 
   word-wrap: break-word;
@@ -367,7 +366,7 @@ document.addEventListener("DOMContentLoaded", function () {
       align-self: flex-end;
       border-radius: 0.5rem;
       color:${rgba(gray, 0.9)};
-      line-height: 1.6rem;
+      line-height: 180%;
       text-wrap: pretty;
       max-width: 90%;
       `;
@@ -401,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
       align-self: flex-start;
       border-radius: 0.5rem;
       color:${rgba(rgb, 0.9)};
-      line-height: 1.6rem;
+      line-height: 180%;
       text-wrap: pretty;
       max-width: 90%;
       `;
