@@ -517,7 +517,6 @@ document.addEventListener("DOMContentLoaded", function () {
       deleteLastChile();
       addMessageAssistantChat(data.data.messages[0].message);
     } catch (error) {
-      console.log(error);
       deleteLastChile();
       addMessageAssistantChat("There was an error ❌");
       console.error("There was a problem with the fetch operation:", error);
