@@ -476,7 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const localChat = getLocalStorageMessage(params.idAssistant);
       // Enviar el mensaje al servidor usando Fetch
-      const endpointUrl = "https://backend.gotaan.cloud/api/web/chat"; // Reemplaza con la URL de tu endpoint
+      const endpointUrl = "http://localhost:3000/api/web/chat"; // Reemplaza con la URL de tu endpoint
       const fetchOptions = {
         method: "POST",
         headers: {
@@ -517,6 +517,7 @@ document.addEventListener("DOMContentLoaded", function () {
       deleteLastChile();
       addMessageAssistantChat(data.data.messages[0].message);
     } catch (error) {
+      console.log(error);
       deleteLastChile();
       addMessageAssistantChat("There was an error ❌");
       console.error("There was a problem with the fetch operation:", error);
