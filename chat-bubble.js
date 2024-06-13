@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const scriptUrl = getScriptUrl(
-    "https://cdn.jsdelivr.net/gh/GHimmel/chat-bubble@main/chat-bubble.js"
+    "https://ghimmel.github.io/chat-bubble/chat-bubble.js"
   );
   /* https://ghimmel.github.io/chat-bubble/chat-bubble.js */
   /* chat-bubble.js */
