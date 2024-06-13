@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const scriptUrl = getScriptUrl(
-    "https://cdn.jsdelivr.net/gh/GHimmel/chat-bubble@main/chat-bubble.js"
+    "https://ghimmel.github.io/chat-bubble/chat-bubble.js"
   );
   /* https://ghimmel.github.io/chat-bubble/chat-bubble.js */
 
@@ -466,8 +466,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  let testSendMessage = false;
+
   const sendMessageFetch = async (message) => {
     /// fetch para mandar mensaje
+
+    if (testSendMessage) {
+      return;
+    }
+
+    if (message.length <= 0) {
+      return;
+    }
+
+    testSendMessage = true;
+
     try {
       const localChat = getLocalStorageMessage(params.idAssistant);
       // Enviar el mensaje al servidor usando Fetch
@@ -515,6 +528,8 @@ document.addEventListener("DOMContentLoaded", function () {
       deleteLastChile();
       addMessageAssistantChat("There was an error ❌");
       console.error("There was a problem with the fetch operation:", error);
+    } finally {
+      testSendMessage = false;
     }
   };
 
