@@ -25,9 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const scriptUrl = getScriptUrl(
-    "https://ghimmel.github.io/chat-bubble/chat-bubble.js"
+    "https://cdn.jsdelivr.net/gh/GHimmel/chat-bubble@main/chat-bubble.js"
   );
   /* https://ghimmel.github.io/chat-bubble/chat-bubble.js */
+  /* chat-bubble.js */
+  /* https://cdn.jsdelivr.net/gh/GHimmel/chat-bubble@main/chat-bubble.js */
 
   const queryStringIndex = scriptUrl.indexOf("?");
 
@@ -174,18 +176,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* toggleButton.className = "toggle-button"; */
   toggleButton.style.cssText = `
-    background-color:${rgba(rgb, 1)};
+    background-color: ${rgba(rgb, 1)};
     color: white;
     padding: 12px;
     border-radius: 50%;
     cursor: pointer;
     border: none;
-  `;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px; /* Ajusta el ancho del botón según sea necesario */
+    height: 60px; /* Ajusta el alto del botón según sea necesario */
+`;
+
   toggleButton.innerHTML = `
-  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 15 15">
-  <path fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" d="m5.5 11.493l2 2.998l2-2.998h4a1 1 0 0 0 1-1V1.5a.999.999 0 0 0-1-.999h-12a1 1 0 0 0-1 1v8.994c0 .552.447.999 1 .999z" clip-rule="evenodd"></path>
-</svg>
-  `;
+    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 15 15" style="vertical-align: middle; margin-top:2px">
+        <path fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" d="m5.5 11.493l2 2.998l2-2.998h4a1 1 0 0 0 1-1V1.5a.999.999 0 0 0-1-.999h-12a1 1 0 0 0-1 1v8.994c0 .552.447.999 1 .999z" clip-rule="evenodd"></path>
+    </svg>
+`;
 
   // Añadir contenido a los elementos
   const userInfo = document.createElement("div");
@@ -322,8 +330,8 @@ document.addEventListener("DOMContentLoaded", function () {
       chatContainer.style.border = "0";
       chatContainer.style.padding = "0px";
       toggleButton.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 15 15">
-      <path fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" d="m5.5 11.493l2 2.998l2-2.998h4a1 1 0 0 0 1-1V1.5a.999.999 0 0 0-1-.999h-12a1 1 0 0 0-1 1v8.994c0 .552.447.999 1 .999z" clip-rule="evenodd"></path>
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 15 15" style="vertical-align: middle; margin-top:2px">
+        <path fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" d="m5.5 11.493l2 2.998l2-2.998h4a1 1 0 0 0 1-1V1.5a.999.999 0 0 0-1-.999h-12a1 1 0 0 0-1 1v8.994c0 .552.447.999 1 .999z" clip-rule="evenodd"></path>
     </svg>
         `;
     } else {
