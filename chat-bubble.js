@@ -476,7 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const localChat = getLocalStorageMessage(params.idAssistant);
       // Enviar el mensaje al servidor usando Fetch
-      const endpointUrl = "http://localhost:3000/api/web/chat"; // Reemplaza con la URL de tu endpoint
+      const endpointUrl = "https://backend.gotaan.cloud/api/web/chat"; // Reemplaza con la URL de tu endpoint
       const fetchOptions = {
         method: "POST",
         headers: {
