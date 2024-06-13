@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    padding:0px 0px 8px 0px;
+    padding:6px 0px 12px 0px;
     border-bottom: 1px solid #d1d5db;
     color:${rgba(rgb, 0.9)};
   `;
@@ -192,13 +192,6 @@ document.addEventListener("DOMContentLoaded", function () {
   userInfo.style.alignItems = "center";
   userInfo.style.gap = "16px";
 
-  const userImg = document.createElement("img");
-  userImg.src =
-    "https://i1.wp.com/thehappening.com/wp-content/uploads/2015/12/pomeranian-perros.jpg?fit=1024%2C694&ssl=1";
-  userImg.style.width = "40px";
-  userImg.style.height = "40px";
-  userImg.style.borderRadius = "50%";
-
   const userName = document.createElement("p");
   userName.innerText = params.assistantName || "Assistant";
 
@@ -209,7 +202,6 @@ document.addEventListener("DOMContentLoaded", function () {
   font-weight: 600;
 `;
 
-  userInfo.appendChild(userImg);
   userInfo.appendChild(userName);
 
   const resetButton = document.createElement("button");
@@ -484,7 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const localChat = getLocalStorageMessage(params.idAssistant);
       // Enviar el mensaje al servidor usando Fetch
-      const endpointUrl = "http://localhost:3000/api/web/chat"; // Reemplaza con la URL de tu endpoint
+      const endpointUrl = "https://backend.gotaan.cloud/api/web/chat"; // Reemplaza con la URL de tu endpoint
       const fetchOptions = {
         method: "POST",
         headers: {
