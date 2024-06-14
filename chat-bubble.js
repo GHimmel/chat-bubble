@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     font-family: 'Inter', sans-serif;
     scrollbar-gutter: stable;
-    z-index:110
+    z-index:110;
   `;
 
   /*  chatHeader.className = "chat-header"; */
@@ -187,8 +187,8 @@ document.addEventListener("DOMContentLoaded", function () {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px; /* Ajusta el ancho del botón según sea necesario */
-    height: 60px; /* Ajusta el alto del botón según sea necesario */
+    width: 60px; 
+    height: 60px; 
 `;
 
   toggleButton.innerHTML = `
@@ -199,18 +199,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Añadir contenido a los elementos
   const userInfo = document.createElement("div");
-  userInfo.style.display = "flex";
-  userInfo.style.alignItems = "center";
-  userInfo.style.gap = "16px";
+  userInfo.style.cssText = `
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
 
   const userName = document.createElement("p");
   userName.innerText = params.assistantName || "Assistant";
 
   userName.style.cssText = `
   font-size: 25px;
-  padding:0px;
-  line-height: 0px;
+  padding: 0px;
+  margin:0px;
   font-weight: 600;
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+  white-space: pre-wrap; 
 `;
 
   userInfo.appendChild(userName);
@@ -334,16 +343,26 @@ document.addEventListener("DOMContentLoaded", function () {
       chatContainer.style.width = "0";
       chatContainer.style.border = "0";
       chatContainer.style.padding = "0px";
+
       toggleButton.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 15 15" style="vertical-align: middle; margin-top:2px">
         <path fill="none" stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" d="m5.5 11.493l2 2.998l2-2.998h4a1 1 0 0 0 1-1V1.5a.999.999 0 0 0-1-.999h-12a1 1 0 0 0-1 1v8.994c0 .552.447.999 1 .999z" clip-rule="evenodd"></path>
     </svg>
         `;
     } else {
-      chatContainer.style.height = "80%";
-      chatContainer.style.width = "425px";
-      chatContainer.style.border = "1px solid #e5e7eb";
-      chatContainer.style.padding = "12px";
+      if (window.innerWidth <= 600) {
+        chatContainer.style.height = "80%";
+        chatContainer.style.width = "80%";
+        chatContainer.style.border = "1px solid #e5e7eb";
+        chatContainer.style.padding = "12px";
+      }
+      if (window.innerWidth > 600) {
+        chatContainer.style.height = "80%";
+        chatContainer.style.width = "425px";
+        chatContainer.style.border = "1px solid #e5e7eb";
+        chatContainer.style.padding = "12px";
+      }
+
       toggleButton.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 1024 1024" transform="rotate(180)">
       <path fill="currentColor" d="M104.704 685.248a64 64 0 0 0 90.496 0l316.8-316.8l316.8 316.8a64 64 0 0 0 90.496-90.496L557.248 232.704a64 64 0 0 0-90.496 0L104.704 594.752a64 64 0 0 0 0 90.496"/>
