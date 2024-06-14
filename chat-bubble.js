@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   let isOpen = false;
 
+  let testSendMessage = false;
+
   const fontLink = document.createElement("link");
   fontLink.href =
     "https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap";
@@ -285,6 +287,9 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
     button.innerText = question;
     button.onclick = async () => {
+      if (testSendMessage) {
+        return;
+      }
       try {
         addMessageUserChat(question);
         await sendMessageFetch(question);
@@ -354,17 +359,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const gray = hexToRgb("#0C0D0D");
-
-  async function sendMessage() {
-    const message = chatInput.value.trim();
-    addMessageUserChat(message);
-
-    try {
-      await sendMessageFetch(message);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   const addMessageUserChat = (message) => {
     if (message.trim() !== "") {
@@ -474,7 +468,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  let testSendMessage = false;
+  async function sendMessage() {
+    const message = chatInput.value.trim();
+    if (testSendMessage) {
+      return;
+    }
+    addMessageUserChat(message);
+
+    try {
+      await sendMessageFetch(message);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const sendMessageFetch = async (message) => {
     /// fetch para mandar mensaje
